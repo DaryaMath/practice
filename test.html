@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Тест</title>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="image/logo2.jpg"  height="300px"></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Войти</a></li>
+                <li><a href="description.html">Описание</a></li>
+                <li><a href="dictionary.html">Словарь</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="test.html">Тест</a></li>
+                    <li><a href="profile.html">Личный кабинет</a></li>
+                </ul>
+            </nav>
+            <div class="auth">
+                <span id="username"></span>
+                <button id="logout" style="display:none;">Выйти</button>
+            </div>
+        </header>
+    
+        <main id="main">
+            <h1>Тест на знание произведения</h1>
+            <form name="formOne" novalidate>
+                <div>
+                    <p>Как зовут главного мужского героя цикла книг Академии проклятий </p>
+                </div>
+                <div>
+                    <input type="text" id="quest1" pattern="Риан Тьер" required> 
+                </div>
+
+                <div>
+                    <p>Как зовут главную героиню цикла книг Академия проклятий</p>
+                </div>
+                <div>
+                    <input type="text" id="quest2" pattern="Дэя Риате" required>
+                </div>
+                <div>
+                    <p>Как называлась самая известная контора частного сыска в Ардаме</p>
+                </div>
+                <div>
+                    <input type="radio"  name="quest3" value="0">Юрао
+                    <input type="radio"  name="quest3" value="1">ДеЮре
+                    <input type="radio"  name="quest3" value="0">Сыскное агенство
+                    <input type="radio"  name="quest3" value="0">Агенство ссыска
+                </div>
+                <div>
+                    <p>Как зовут директора Школы смерти</p>
+                </div>
+                <div>
+                    <input type="radio"  name="quest4" value="1">Дариан Элохар
+                    <input type="radio"  name="quest4" value="0">Юрао Найтес
+                    <input type="radio"  name="quest4" value="0">Андриан Тьер
+                    <input type="radio"  name="quest4" value="0">Риан Тьер
+                </div>
+                <div>
+                    <p>Как называется учебное заведение в котором учиться главная героиня</p>
+                </div>
+                <div>
+                    <input type="radio"  name="quest5" value="0">Школа Смерти
+                    <input type="radio"  name="quest5" value="0">Магическая Академия
+                    <input type="radio"  name="quest5" value="1">Академия Проклятий
+                    <input type="radio"  name="quest5" value="0">Магическая Академия Проклятий
+                </div>
+                <div>
+                    <p>Что искала главная героиня в первой книге</p>
+                </div>
+                <div>
+                    <input type="radio"  name="quest6" value="1">Кольцо
+                    <input type="radio"  name="quest6" value="0">Зеркало
+                    <input type="radio"  name="quest6" value="0">Мужа
+                    <input type="radio"  name="quest6" value="0">Друга
+                </div>
+            </form>
+            <div><button id='result' type='submit'>Отправить</button></div>
+            <div id="finalScore"></div>
+            <button id="retry" style="display:none;">Пройти тест заново</button>
+        </main>
+    
+        <footer>
+            <div>Контактные данные: <a href="https://vk.com/book_with_cupoftea">Вк</a></div>
+        <div>Социальные сети: <a href="https://t.me/+izj1ub1d2wg2OWVi">Телеграм</a></div>
+        <div>&copy; 2023</div>
+        </footer>
+    
+        <script src="js/code.js"></script>
+        <script>
+            const btnResult = document.getElementById('result');
+            btnResult.addEventListener('click', result);
+            function result() {
+                resultSum();
+                document.getElementById('finalScore').innerText = String(sum);
+                localStorage.setItem('lastScore', sum)
+            }
+
+            function resultSum() {
+                sum = Number(document.formOne.elements.quest1.validity.valid) +
+                      Number(document.formOne.elements.quest2.validity.valid) + 
+                      Number(document.formOne.elements.quest3.value) +
+                      Number(document.formOne.elements.quest4.value) +
+                      Number(document.formOne.elements.quest5.value) +
+                      Number(document.formOne.elements.quest6.value);
+   
+    
+}
+    </script>
+</body>
+</html>
+    

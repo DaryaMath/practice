@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Личный кабинет</title>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="image/logo2.jpg"  height="300px"></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Войти</a></li>
+                <li><a href="description.html">Описание</a></li>
+                <li><a href="dictionary.html">Словарь</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="test.html">Тест</a></li>
+                <li><a href="profile.html">Личный кабинет</a></li>
+            </ul>
+        </nav>
+        <div class="auth">
+            <span id="username"></span>
+            <button id="logout" style="display:none;">Выйти</button>
+        </div>
+    </header>
+
+    <main id="main">
+        <h1>Личный кабинет</h1>
+        <p>Добро пожаловать, <span id="userNameDisplay"></span>!</p>
+        <p>Ваш последний результат теста: <span id="lastScoreDisplay">0</span> баллов.</p>
+    </main>
+
+    <footer>
+        <div>Контактные данные: <a href="https://vk.com/book_with_cupoftea">Вк</a></div>
+        <div>Социальные сети: <a href="https://t.me/+izj1ub1d2wg2OWVi">Телеграм</a></div>
+        <div>&copy; 2023</div>
+    </footer>
+
+    <script src="js/code.js"></script>
+    <script>
+        // Здесь можно добавить логику для отображения имени пользователя и последнего результата теста
+        document.getElementById('userNameDisplay').innerText = localStorage.getItem('username') || 'Гость';
+        document.getElementById('lastScoreDisplay').innerText = localStorage.getItem('lastScore') || '0';
+
+        // Обработчик для кнопки выхода
+        document.getElementById('logout').addEventListener('click', function() {
+            localStorage.removeItem('username');
+            localStorage.removeItem('lastScore');
+            document.getElementById('username').innerText = '';
+            document.getElementById('logout').style.display = 'none';
+            window.location.href = 'index.html'; // Перенаправление на страницу авторизации
+        });
+    </script>
+</body>
+</html>
