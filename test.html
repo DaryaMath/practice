@@ -34,13 +34,14 @@
                 <div>
                     <input type="text" id="quest1" pattern="Риан Тьер" required> 
                 </div>
-
+                <div id="tq1"></div>
                 <div>
                     <p>Как зовут главную героиню цикла книг Академия проклятий</p>
                 </div>
                 <div>
                     <input type="text" id="quest2" pattern="Дэя Риате" required>
                 </div>
+                <div id="tq2"></div>
                 <div>
                     <p>Как называлась самая известная контора частного сыска в Ардаме</p>
                 </div>
@@ -50,6 +51,7 @@
                     <input type="radio"  name="quest3" value="0">Сыскное агенство
                     <input type="radio"  name="quest3" value="0">Агенство ссыска
                 </div>
+                <div id="tq3"></div>
                 <div>
                     <p>Как зовут директора Школы смерти</p>
                 </div>
@@ -59,6 +61,7 @@
                     <input type="radio"  name="quest4" value="0">Андриан Тьер
                     <input type="radio"  name="quest4" value="0">Риан Тьер
                 </div>
+                <div id="tq4"></div>
                 <div>
                     <p>Как называется учебное заведение в котором учиться главная героиня</p>
                 </div>
@@ -68,6 +71,7 @@
                     <input type="radio"  name="quest5" value="1">Академия Проклятий
                     <input type="radio"  name="quest5" value="0">Магическая Академия Проклятий
                 </div>
+                <div id="tq5"></div>
                 <div>
                     <p>Что искала главная героиня в первой книге</p>
                 </div>
@@ -77,6 +81,7 @@
                     <input type="radio"  name="quest6" value="0">Мужа
                     <input type="radio"  name="quest6" value="0">Друга
                 </div>
+                <div id="tq5"></div>
             </form>
             <div><button id='result' type='submit'>Отправить</button></div>
             <div id="finalScore"></div>
@@ -95,9 +100,41 @@
             btnResult.addEventListener('click', result);
             function result() {
                 resultSum();
-                document.getElementById('finalScore').innerText = String(sum);
+                document.getElementById('finalScore').innerText = 'Ваш результат: ' + String(sum);
                 localStorage.setItem('lastScore', sum)
+            if (Number(document.formOne.elements.quest1.validity.valid) == 0) {
+                document.getElementById('tq1').innerText = 'Верный ответ: Риан Тьер'
+            } else {
+                document.getElementById('tq1').innerText = 'Верно'
             }
+            if (Number(document.formOne.elements.quest2.validity.valid) == 0) {
+                document.getElementById('tq2').innerText = 'Верный ответ: Дэя Риате'
+            } else {
+                document.getElementById('tq2').innerText = 'Верно'
+            }
+            if (Number(document.formOne.elements.quest3.value) == 0) {
+                document.getElementById('tq3').innerText = 'Верный ответ: ДеЮре'
+            } else {
+                document.getElementById('tq3').innerText = 'Верно'
+            }
+            if (Number(document.formOne.elements.quest4.value) == 0) {
+                document.getElementById('tq4').innerText = 'Верный ответ: Дариан Эллохар'
+            } else {
+                document.getElementById('tq4').innerText = 'Верно'
+            }
+            if (Number(document.formOne.elements.quest5.value)== 0) {
+                document.getElementById('tq5').innerText = 'Верный ответ: Академия Проклятий'
+            } else {
+                document.getElementById('tq5').innerText = 'Верно'
+            }
+            if (Number(document.formOne.elements.quest6.value) == 0) {
+                document.getElementById('tq6').innerText = 'Верный ответ: Кольцо'
+            } else {
+                document.getElementById('tq6').innerText = 'Верно'
+            }
+        }
+
+
 
             function resultSum() {
                 sum = Number(document.formOne.elements.quest1.validity.valid) +

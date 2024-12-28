@@ -15,6 +15,8 @@ document.getElementById('authForm').addEventListener('submit', function(event) {
     document.getElementById('username').innerText = `Добро пожаловать, ${login}`
     // Сохранение имени пользователя в localStorage
     localStorage.setItem('username', login);
+    localStorage.setItem('age', dob)
+    localStorage.setItem('gender', document.getElementById('gender').value);
     //document.getElementById('userNameDisplay').innerText = login;
 
     // Показать кнопку выхода
@@ -22,7 +24,7 @@ document.getElementById('authForm').addEventListener('submit', function(event) {
 
     // Скрыть форму авторизации
     document.getElementById('authForm').style.display = 'none';
-
+    window.location.href = 'description.html';
     // Сбросить ошибки
     document.getElementById('dobError').innerText = '';
     document.getElementById('loginError').innerText = '';
